@@ -1,0 +1,51 @@
+{
+  "name": "cursor-rtl",
+  "displayName": "Cursor/VSCode RTL Chat Fixer",
+  "description": "Smart RTL alignment for the chat panel: detects Persian/Arabic text and right-aligns it, while keeping code blocks, tables, and English-only text left-to-right.",
+  "version": "1.0.0",
+  "publisher": "local",
+  "icon": "resources/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://example.com/local/cursor-rtl-ext"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "rtlFixer.enable", "title": "RTL Fixer: Enable RTL Chat" },
+      { "command": "rtlFixer.disable", "title": "RTL Fixer: Disable and Restore" },
+      { "command": "rtlFixer.status", "title": "RTL Fixer: Show Status" },
+      { "command": "rtlFixer.reapply", "title": "RTL Fixer: Reapply After Update" }
+    ],
+    "configuration": {
+      "title": "RTL Chat Fixer",
+      "properties": {
+        "rtlFixer.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show patch status in the status bar"
+        },
+        "rtlFixer.autoDetectMode": {
+          "type": "string",
+          "enum": ["smart", "always-rtl", "off"],
+          "default": "smart",
+          "description": "smart = automatically detect Persian/Arabic vs. code and English"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.4.0"
+  }
+}
