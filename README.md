@@ -11,18 +11,25 @@
 <a id="english"></a>
 ## English
 
+<p align="center">
+  <a href="https://github.com/sadrabarani/persian-rtl-cursor-extension/releases/latest">
+    <img src="https://img.shields.io/github/v/release/sadrabarani/persian-rtl-cursor-extension?label=Download%20VSIX&style=for-the-badge" alt="Download VSIX" />
+  </a>
+</p>
+
 # Cursor/VSCode RTL Chat Fixer
 
 A fully local extension for smart, automatic right-to-left alignment in the Cursor/VSCode chat panel.
 
+### Before / After
+
+| Before | After |
+|---|---|
+| <img src="resources/screenshots/before.png" width="380" alt="Before: Persian text misaligned" /> | <img src="resources/screenshots/after.png" width="380" alt="After: Persian text correctly right-aligned" /> |
+
 ### What this extension does
 
 The Cursor chat panel is a regular Electron UI that can't be reached through the official extension API (which is limited to an extension's own Webview panels). The only way to inject CSS/JS into that panel is to add one `require` line to the main Electron process's `main.js` — the same approach used by well-known extensions like `vscode-custom-css`.
-
-**What this extension never does:**
-- No telemetry or data sent to any external server (unlike the project that inspired this one, which had a hardcoded Application Insights Instrumentation Key)
-- No automatic update checks or network calls
-- No change without explicit user confirmation and a clear, detailed dialog explaining exactly what will happen
 
 ### RTL detection logic (`rtl-fixer-inject.js`)
 
@@ -36,13 +43,18 @@ For every text block (paragraph, list item, table cell, etc.):
 
 ### Install and use
 
+**Option A — direct download (recommended):**
+1. Download the latest `.vsix` from [Releases](https://github.com/sadrabarani/persian-rtl-cursor-extension/releases/latest)
+2. In Cursor/VSCode: Extensions panel → `...` menu(or press ctrl+shift+p) → **Install from VSIX...** → select the downloaded file
+3. to enable/disable extension you should run cursor as administrator and after enable/disable relaunch app  
+
+**Option B — build from source:**
 ```bash
 cd cursor-rtl-ext
 npm install
 npm run compile
+npx vsce package --baseContentUrl https://github.com/sadrabarani/persian-rtl-cursor-extension/raw/main --baseImagesUrl https://github.com/sadrabarani/persian-rtl-cursor-extension/raw/main
 ```
-
-Then press `F5` in VSCode to debug it, or run `npx vsce package` to build a `.vsix` and install it in Cursor.
 
 Commands (Ctrl+Shift+P):
 - **RTL Fixer: Enable RTL Chat**
@@ -61,18 +73,24 @@ Commands (Ctrl+Shift+P):
 <a id="فارسی"></a>
 ## فارسی
 
+<p align="center">
+  <a href="https://github.com/sadrabarani/persian-rtl-cursor-extension/releases/latest">⬇️ دانلود فایل VSIX از Releases</a>
+</p>
+
 # Cursor/VSCode RTL Chat Fixer
 
 افزونه‌ای کاملاً محلی (local-only) برای راست‌چین‌کردن هوشمند و خودکار پنجره‌ی چت در Cursor/VSCode.
+
+### قبل / بعد
+
+| قبل | بعد |
+|---|---|
+| <img src="resources/screenshots/before.png" width="380" alt="قبل: متن فارسی بهم‌ریخته" /> | <img src="resources/screenshots/after.png" width="380" alt="بعد: متن فارسی درست راست‌چین‌شده" /> |
 
 ### این افزونه چه می‌کند
 
 پنجره‌ی چت Cursor یک رابط Electron معمولی است که از مکانیزم رسمی افزونه (Webview API محدود به پنل‌های خودِ افزونه) قابل تزریق نیست. به همین دلیل، تنها راه تزریق CSS/JS به آن پنجره، اضافه‌کردن یک خط `require` به فایل `main.js` پروسه‌ی اصلی Electron است — دقیقاً همان روشی که افزونه‌های شناخته‌شده‌ای مثل `vscode-custom-css` هم استفاده می‌کنند.
 
-**چیزی که این افزونه هرگز انجام نمی‌دهد:**
-- هیچ تله‌متری یا ارسال داده به سرور خارجی (برخلاف نسخه‌ی اصلی که الهام گرفته شده، که یک Instrumentation Key ثابت برای Application Insights داشت)
-- هیچ بررسی آپدیت خودکار یا تماس شبکه‌ای
-- هیچ تغییری بدون تأیید صریح و نمایش جزئیات دقیق به کاربر (دیالوگ مودال با شرح کامل عملیات)
 
 ### منطق تشخیص RTL (`rtl-fixer-inject.js`)
 
@@ -86,13 +104,18 @@ Commands (Ctrl+Shift+P):
 
 ### نصب و استفاده
 
+**روش الف — دانلود مستقیم (پیشنهادی):**
+۱. آخرین فایل `.vsix` رو از [Releases](https://github.com/sadrabarani/persian-rtl-cursor-extension/releases/latest) دانلود کن
+۲. در Cursor/VSCode: پنل Extensions ← منوی `...` (ctrl+shift+p) ← **Install from VSIX...** ← فایل دانلود شده رو انتخاب کن
+برای فعال سازی یا غیرفعال کردن افزونه باید کرسر را به صورت run as administrator اجرا کنید و یک بار ببندید
+
+**روش ب — بیلد از سورس:**
 ```bash
 cd cursor-rtl-ext
 npm install
 npm run compile
+npx vsce package --baseContentUrl https://github.com/sadrabarani/persian-rtl-cursor-extension/raw/main --baseImagesUrl https://github.com/sadrabarani/persian-rtl-cursor-extension/raw/main
 ```
-
-سپس با `F5` در VSCode دیباگ کنید یا با `npx vsce package` یک `.vsix` بسازید و در Cursor نصب کنید.
 
 دستورات (Ctrl+Shift+P):
 - **RTL Fixer: Enable RTL Chat**
@@ -105,3 +128,4 @@ npm run compile
 - این روش خارج از API رسمی افزونه‌هاست و ممکن است با شرایط استفاده‌ی Cursor در تضاد باشد — مسئولیت استفاده با شماست.
 - با هر آپدیت Cursor/VSCode، `main.js` جایگزین می‌شود و باید دوباره «اعمال دوباره» را بزنید.
 - همیشه قبل از فعال‌سازی یک بکاپ خودکار از `main.js` گرفته می‌شود (`main.js.rtl-fixer-backup-<timestamp>`) — برای بازگردانی کامل دستی هم می‌توانید این فایل را جای `main.js` کپی کنید.
+
